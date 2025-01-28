@@ -84,6 +84,7 @@ kotlin {
 // Drop this configuration when the Node.JS version in KGP will support wasm gc milestone 4
 // check it here:
 // https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/targets/js/nodejs/NodeJsRootExtension.kt
-val nodeJsRootExtension = rootProject.extensions.findByType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension::class.java)
-nodeJsRootExtension?.nodeVersion = "21.0.0-v8-canary202309167e82ab1fa2"
-nodeJsRootExtension?.nodeDownloadBaseUrl = "https://nodejs.org/download/v8-canary"
+rootProject.extensions.findByType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension::class.java)?.let {
+    it.nodeVersion = "21.0.0-v8-canary202309167e82ab1fa2"
+    it.nodeDownloadBaseUrl = "https://nodejs.org/download/v8-canary"
+}
